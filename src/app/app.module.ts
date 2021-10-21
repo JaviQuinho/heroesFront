@@ -8,8 +8,14 @@ import { HeroComponent } from './pages/hero/hero.component';
 import { MissionComponent } from './pages/mission/mission.component';
 
 import {MatTabsModule} from '@angular/material/tabs';
+import {MatIconModule} from '@angular/material/icon';
+import {MatTableModule} from '@angular/material/table';
+import {MatButtonModule} from '@angular/material/button';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { NewHeroComponent } from './pages/hero/new-hero/new-hero.component';
+import { TableHeroComponent } from './pages/hero/table-hero/table-hero.component';
 
 @NgModule({
   declarations: [
@@ -18,12 +24,18 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     HeaderComponent,
     HeroComponent,
     MissionComponent,
+    NewHeroComponent,
+    TableHeroComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FlexLayoutModule,
     MatTabsModule,
+    MatIconModule,
+    MatTableModule,
+    MatButtonModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
