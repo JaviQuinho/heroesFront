@@ -16,6 +16,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { NewHeroComponent } from './pages/hero/new-hero/new-hero.component';
 import { TableHeroComponent } from './pages/hero/table-hero/table-hero.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { TableHeroComponent } from './pages/hero/table-hero/table-hero.component
     MatTableModule,
     MatButtonModule,
     BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
