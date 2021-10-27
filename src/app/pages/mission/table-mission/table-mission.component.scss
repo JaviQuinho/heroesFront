@@ -1,0 +1,28 @@
+.mat-footer-row,
+.mat-header-row,
+.mat-row {
+    min-width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mat-column-id {
+    min-width: 5%;
+}
+
+.mat-column-firstName {
+    min-width: 20%;
+}
+
+.mat-column-lastName {
+    min-width: 20%;
+}
+
+.mat-column-heroName {
+    min-width: 20%;
+}
+
+.mat-column-heroPower {
+    min-width: 30%;
+}

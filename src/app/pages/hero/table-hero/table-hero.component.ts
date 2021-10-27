@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HeroETO } from 'src/app/services/hero.service.interface';
-import { HeroService } from 'src/app/services/hero.service';
+import { HeroETO } from 'src/app/services/hero/hero.service.interface';
+import { HeroService } from 'src/app/services/hero/hero.service';
 
 /* const ELEMENT_DATA: HeroETO[] = [
   {​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​id: 1, firstName: 'nombre1', lastName: 'apellidos1', heroName: 'nombre1', heroPower: 'poder1'}​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​,
