@@ -1,9 +1,10 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { HeroETO } from 'src/app/services/hero/hero.service.interface';
 import { HeroService } from 'src/app/services/hero/hero.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalAddEditHeroComponent } from '../modal-add-edit-hero/modal-add-edit-hero.component';
 import { SubjectService } from 'src/app/services/subject/subject.service';
+import { Subscription } from 'rxjs';
 
 /* const ELEMENT_DATA: HeroETO[] = [
   {​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​id: 1, firstName: 'nombre1', lastName: 'apellidos1', heroName: 'nombre1', heroPower: 'poder1'}​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​,
@@ -18,10 +19,12 @@ import { SubjectService } from 'src/app/services/subject/subject.service';
   templateUrl: './table-hero.component.html',
   styleUrls: ['./table-hero.component.scss']
 })
-export class TableHeroComponent implements OnInit {
+export class TableHeroComponent implements OnInit, OnDestroy {
 
   dataSource: HeroETO[] = [];
   displayedColumns: string[] = ['firstName', 'lastName', 'heroName', 'heroPower', 'edit'];
+  private modalAddEditHeroObservableRef: Subscription = null;
+  private heroServiceRef: Subscription = null;
   
 
   constructor(
@@ -34,13 +37,18 @@ export class TableHeroComponent implements OnInit {
 
   ngOnInit(): void {
     this.callService();
-    this.subjectService.modalAddEditHeroObservable.subscribe(res => {
+    this.modalAddEditHeroObservableRef = this.subjectService.modalAddEditHeroObservable.subscribe(res => {
       this.callService();
     });
   }
 
+  ngOnDestroy(): void{​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​
+    this.modalAddEditHeroObservableRef.unsubscribe();
+    this.heroServiceRef.unsubscribe();
+  }​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​  
+
   callService(): void {
-    this.heroService.findAllHero().subscribe(res => {
+    this.heroServiceRef = this.heroService.findAllHero().subscribe(res => {
       this.dataSource = res._embedded.heroes;
       console.log(res);
     });
