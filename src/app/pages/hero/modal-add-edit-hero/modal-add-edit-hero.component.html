@@ -1,0 +1,22 @@
+<div>
+    <form action="" [formGroup]="heroForm">
+        
+        <!-- Title -->
+        <mat-label><strong>{{title | titlecase}}</strong></mat-label>
+        
+        <!-- Fields -->
+        <div fxLayout="row" fxLayoutAlign="space-between center"
+         class="field"
+         *ngFor="let formControl of formControls">
+            <mat-label>{{formControl | titlecase}}</mat-label>
+            <input type="text" formControlName="{{formControl}}" (click)="test(formControl)">
+        </div>
+        
+        <!-- Button -->
+        <div fxLayout="row" fxLayoutAlign="end">
+            <button mat-flat-button color="warn"
+             (click)="submitData()"
+             >{{buttonText}}</button>
+        </div>
+    </form>
+</div>

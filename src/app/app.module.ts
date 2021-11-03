@@ -19,6 +19,10 @@ import { TableHeroComponent } from './pages/hero/table-hero/table-hero.component
 import { HttpClientModule } from '@angular/common/http';
 import { NewMissionComponent } from './pages/mission/new-mission/new-mission.component';
 import { TableMissionComponent } from './pages/mission/table-mission/table-mission.component';
+import { ModalAddEditHeroComponent } from './pages/hero/modal-add-edit-hero/modal-add-edit-hero.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule, MatLabel } from '@angular/material/form-field';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -30,7 +34,8 @@ import { TableMissionComponent } from './pages/mission/table-mission/table-missi
     NewHeroComponent,
     TableHeroComponent,
     NewMissionComponent,
-    TableMissionComponent
+    TableMissionComponent,
+    ModalAddEditHeroComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +46,10 @@ import { TableMissionComponent } from './pages/mission/table-mission/table-missi
     MatTableModule,
     MatButtonModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
