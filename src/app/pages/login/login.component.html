@@ -1,0 +1,24 @@
+<div class="main-container">
+    <form>
+        <div class="form-container" fxLayout="column" fxLayoutAlign="space-between center">
+            <div class="title" fxLayout="column" fxLayoutAlign="start start">
+                <mat-label><strong>{{title}}</strong></mat-label>
+            </div>
+            <div *ngIf="stage === 1" class="buttons-container" fxLayout="column">
+                <button mat-raised-button color="warn" (click)="iAmThanos(2)">I'm Thanos!</button>
+                <button mat-raised-button color="primary" (click)="youAreNotThanos(true, 1)">who cares...</button>
+                <button mat-raised-button color="accent" (click)="youAreNotThanos(true, 2)">Your mama, let me in</button>
+            </div>
+            <div *ngIf="stage === 2" class="buttons-container" fxLayout="column">
+                <button mat-raised-button color="warn" (click)="iAmThanos(0)">Yes, i'm the f... THANOS!!</button>
+                <button mat-raised-button color="primary" (click)="youAreNotThanos(true, 3)">Actually...IM BATMAN!</button>
+                <button mat-raised-button color="accent" (click)="iAmThanos(1)">Meh</button>
+            </div> 
+        </div>
+
+        
+        <div fxLayoutAlign="center">
+            <mat-error *ngIf="notThanos">{{msgNot}}</mat-error>
+        </div>
+    </form>
+</div>

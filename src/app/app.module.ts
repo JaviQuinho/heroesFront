@@ -26,6 +26,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ModalAddMissionComponent } from './pages/mission/modal-add-mission/modal-add-mission.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import {MatInputModule} from '@angular/material/input';
+import { LoginComponent } from './pages/login/login.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import {MatInputModule} from '@angular/material/input';
     TableMissionComponent,
     ModalAddEditHeroComponent,
     ModalAddMissionComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
