@@ -16,7 +16,15 @@ export class MissionService {​​​​​​​​​​​​​​​​​
   }​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​
  
   findAllMission(): Observable<MissionsETO> {​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​
-    return this.httpClient.get<MissionsETO>(`${environment.APIEndPoint}missions/`);
+    return this.httpClient.get<MissionsETO>(`${environment.APIEndPoint}/missions`);
   }​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​
+
+  saveMission(mission: MissionETO): Observable<MissionsETO> {
+    return this.httpClient.post<MissionsETO>(`${this.APIEndPoint}/missions`, mission);
+  }
+
+  updateMission(mission: MissionETO, link: string): Observable<MissionETO> {
+    return this.httpClient.put<MissionETO>(link, mission);
+  }
  
 }​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​

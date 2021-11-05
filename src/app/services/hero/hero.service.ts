@@ -20,7 +20,6 @@ export class HeroService {
   }
 
   saveHero(hero: HeroETO): Observable<HeroesETO> {
-    console.log(`${this.APIEndPoint}/heroes`, hero);
     return this.httpClient.post<HeroesETO>(`${this.APIEndPoint}/heroes`, hero);
   }
   
