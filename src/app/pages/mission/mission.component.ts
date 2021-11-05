@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-mission',
   templateUrl: './mission.component.html',
-  styleUrls: ['./mission.component.css']
+  styleUrls: ['./mission.component.scss']
 })
 export class MissionComponent implements OnInit {
 
@@ -12,4 +12,9 @@ export class MissionComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  saveEventToChild: boolean;
+
+  receiveSaveEvent($event): void {​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​
+    this.saveEventToChild = $event;
+  }​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​
 }

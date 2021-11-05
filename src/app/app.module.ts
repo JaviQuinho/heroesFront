@@ -21,8 +21,11 @@ import { NewMissionComponent } from './pages/mission/new-mission/new-mission.com
 import { TableMissionComponent } from './pages/mission/table-mission/table-mission.component';
 import { ModalAddEditHeroComponent } from './pages/hero/modal-add-edit-hero/modal-add-edit-hero.component';
 import { MatDialogModule } from '@angular/material/dialog';
-import { MatFormFieldModule, MatLabel } from '@angular/material/form-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ModalAddMissionComponent } from './pages/mission/modal-add-mission/modal-add-mission.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -36,6 +39,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     NewMissionComponent,
     TableMissionComponent,
     ModalAddEditHeroComponent,
+    ModalAddMissionComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,7 +53,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     MatDialogModule,
     MatFormFieldModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSnackBarModule,
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

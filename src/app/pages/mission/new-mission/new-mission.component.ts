@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import {​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​ MatDialog }​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​ from '@angular/material/dialog';
+import { ModalAddMissionComponent } from 'src/app/pages/mission/modal-add-mission/modal-add-mission.component'
 
 @Component({
   selector: 'app-new-mission',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewMissionComponent implements OnInit {
 
-  constructor() { }
+  @Output() saveEvent = new EventEmitter<boolean>();
 
-  ngOnInit(): void {
+  constructor(public dialog: MatDialog) { }
+
+  ngOnInit(): void {}
+
+  newMission(): void {
+    const dialogRef = this.dialog.open(ModalAddMissionComponent, {
+      height: '300px',
+      width: '400px',
+      autoFocus: false
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      this.saveEvent.emit(result);
+    });
   }
-
 }

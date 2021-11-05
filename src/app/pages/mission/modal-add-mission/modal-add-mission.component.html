@@ -1,0 +1,30 @@
+<div class="formAddMission">
+
+    <div fxLayout="row" fxLayoutAlign="space-between center">
+        <!-- Title -->
+        <mat-label><strong>New mission</strong></mat-label>
+
+        <!-- Close button -->
+            <button mat-icon-button color="primary"
+            (click)="this.matDialogRef.close()"><mat-icon>close</mat-icon></button>
+    </div>
+
+    <form [formGroup]="missionForm" (ngSubmit)="onSubmit()">
+        <div>
+            <mat-form-field>
+                <mat-label>Instructions</mat-label>
+                <input matInput [formControl]="this.missionForm.get('instructions')">
+                <button mat-button *ngIf="this.missionForm.get('instructions').value" matSuffix mat-icon-button
+                    aria-label="Clear" (click)="this.missionForm.get('instructions').setValue('')">
+                    <mat-icon>close</mat-icon>
+                </button>
+            </mat-form-field>
+        </div>
+
+        <div mat-dialog-actions fxLayout="row" fxLayoutAlign="end">
+            <button mat-raised-button color="primary" [disabled]="!missionForm.valid"
+                onsubmit="onsubmit()">Save mission</button>
+        </div>
+    </form>
+</div>
+
